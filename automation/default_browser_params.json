@@ -22,6 +22,7 @@
     "https-everywhere": false,
     "adblock-plus": false,
     "tracking-protection": false,
+    "webextensions": false,
 
     "proxy": false,
     "save_javascript_proxy": false

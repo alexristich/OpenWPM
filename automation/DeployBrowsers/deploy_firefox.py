@@ -129,6 +129,14 @@ def deploy_firefox(status_queue, browser_params, manager_params, crash_recovery)
     # Set various prefs to improve speed and eliminate traffic to Mozilla
     configure_firefox.optimize_prefs(fp)
 
+    if len(browser_params['webextensions']) > 0:
+        extension_dir = os.path.join(root_dir,'extensions')
+        
+        os.makedirs(extension_dir)
+        for path in browser_params['webextensions']:
+            logger.debug("BROWSER %i: Copying WebExtensions %s to %s" % (browser_params['crawl_id'], path, extension_dir))
+            shutil.copyfile(path, extension_dir)
+
     # Launch the webdriver
     status_queue.put(('STATUS','Launch Attempted',None))
     fb = FirefoxBinary(root_dir  + "/../../firefox-bin/firefox")

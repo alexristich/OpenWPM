@@ -34,6 +34,10 @@ def privacy(browser_params, fp, root_dir, browser_profile_path):
         sys.exit(1)
         #fp.set_preference('privacy.trackingprotection.enabled', True)
 
+    # Load Privacy Badger - Enable all blocking
+#    if browser_params['privacy-badger']:
+#        fp.add_extension(extension=os.path.join(root_dir,'firefox_extensions/privacy-badger-eff-latest.xpi'))
+
     # Load Ghostery - Enable all blocking
     if browser_params['ghostery']:
         fp.add_extension(extension=os.path.join(root_dir,'firefox_extensions/ghostery/ghostery-5.4.10.xpi'))
